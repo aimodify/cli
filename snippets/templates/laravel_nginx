@@ -1,0 +1,13 @@
+server {
+        listen 80 $localserver_name;
+        listen [::]:80 $localserver_name;
+
+        root /var/www/$project_name/public;
+        index index.php index.html index.htm;
+
+        server_name localserver_name;
+
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+}
