@@ -10,11 +10,6 @@
 #echo $bar
 
 #read -r -p "Are you sure? [y/N] " response
-#mysqldump --user=root --password=12 --verbose --compact $DBNAME ${TABLES[@]} > $DBNAME"_"${TABLES[@]}".sql"
-#mysqldump --user=root --password=12 --verbose --compact $DBNAME > $DBNAME".sql"
-#mysqldump --user=root --password=12 $DBNAME 
-#mysqldump -u root -p $DBNAME ${TABLES[@]} --show-progress-size > $DBNAME"_"${TABLES[@]}".sql"
-
 function sqldump {
 
 while [[ $# > 1 ]]
@@ -28,7 +23,7 @@ do
 case $key in
     -h|--host)
     HOSTNAME="$2"
-    shift # past argument
+-    shift # past argument
     ;;
     -u|--user)
     USERNAME="$2"
@@ -58,7 +53,7 @@ done
 
     
 
-    DEFAULTS_OPTIONS=" --single-transaction --no-autocommit --verbose --compact --opt --quick --compress"
+    DEFAULTS_OPTIONS=" --single-transaction --no-autocommit --verbose --compact --opt --quick"
     FNAME=$(date '+%Y-%m-%d_%H-%M-%S');    
     
     

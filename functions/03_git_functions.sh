@@ -1,5 +1,7 @@
 #!/bin/bash
-function git-search-file{
+
+# git search file in whole branches
+function git-search-file(){
     for branch in $(git rev-list --all)
     do
       if (git ls-tree -r --name-only $branch | grep --quiet "$1") 
@@ -10,7 +12,9 @@ function git-search-file{
 }
 export -f git-search-file
 
-function git-show-branches() {
+
+# show  git branches with descriptions
+function git-show-branches(){
   
   branches=$(git for-each-ref --format='%(refname)' refs/ | sed 's|refs/heads/||')
 

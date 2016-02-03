@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+# echo vith verbose check
 function vecho {
     if [ $_VERBOSE == "true"  ]; then
         echo ${1}
@@ -13,7 +13,7 @@ export -f vecho
 function runwchk {
 #    cat ${1}
     if [ ! -f ${1} ]; then
-        echo "not found"
+        vecho "not found"
         return
     fi
 
@@ -23,12 +23,12 @@ function runwchk {
         echo "CHECK!"
     fi
     
-    if [ ! $mime == "text/x-shellscript" ]; then
-        echo ${1}" mime type must be 'text/x-shellscript'."
-        return
-    fi
+#    if [ ! $mime == "text/x-shellscript" ]; then
+#        vecho ${1}" mime type must be 'text/x-shellscript'."
+#        return
+#    fi
     
-    echo ${1}
+    vecho ${1}
     source ${1}
     
 }
@@ -37,15 +37,19 @@ export -f runwchk
 
 
 # запустить все bash скрипты из папки, если такая есть
+# за исключением файлов с префиксом 00_
 function rundir {
     if [ -d $1 ]; then
-        echo "Run files in directory: $1"
+
+        vecho "Run files in directory :"
 
         for i in $( ls $1 ); do
-            runwchk ${1}${i}
+            if [ ${i:0:3} != "00_" ]; then
+                runwchk ${1}${i}
+            fi
         done
     else
-        echo "Directrory ${1} NOT FOUND"
+        vecho "Directrory ${1} NOT FOUND"
     fi
 }
 export -f rundir

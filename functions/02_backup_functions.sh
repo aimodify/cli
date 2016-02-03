@@ -44,3 +44,9 @@ function backupfolder {
     fi
 }
 export -f backupfolder
+
+function join { 
+    local IFS="$1"; shift; echo "$*"; 
+}
+
+export -f join

@@ -4,10 +4,7 @@
 
 alias cdw="cd /var/www/"
 alias cdr="cd /var/www/realtrax/"
-
-alias cdpg="cd /var/www/realtrax/packages/Realtrax/"
-alias cdso="cd /var/www/realtrax/vendor/convidera/socialnexus/Convidera/SocialNexus"
-alias cdco="cd /var/www/realtrax/vendor/convidera/core/"
+alias cda="cd /var/www/analytics/"
 
 alias cdng="cd /etc/nginx/sites-enabled/ && ls"
 
