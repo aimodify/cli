@@ -18,6 +18,8 @@ rundir ${USR_CLI}"functions/"
 rundir ${USR_CLI}"autoload/"
 rundir ${USR_CLI}"aliases/"
 
+rundir ${USR_CLI}"config/"
+
 export HISTIGNORE="ls:history:cd:sudo"
 export PATH=$PATH:/home/ai/.composer/vendor/bin
 #export PATH=${PATH}:~/Downloads/android-sdk-linux/platform-tools
