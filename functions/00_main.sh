@@ -41,7 +41,7 @@ export -f runwchk
 function rundir {
     if [ -d $1 ]; then
 
-        vecho "Run files in directory :"
+        vecho "Run files in directory :${1}"
 
         for i in $( ls $1 ); do
             if [ ${i:0:3} != "00_" ]; then
